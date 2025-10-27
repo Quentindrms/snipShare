@@ -1,0 +1,10 @@
+@import '../var.css';
+
+.primaryButton{
+    background-color: var(--color-primary-700);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+}

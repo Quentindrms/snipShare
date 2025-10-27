@@ -1,0 +1,45 @@
+@import '../var.css';
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-primary-500);
+    font-size: 3vh;
+    position: relative;
+}
+
+.brand-name-link {
+    color: var(--color-white);
+    padding: 1vh;
+    text-decoration: none;
+}
+
+@media (min-width: 901px) {
+    .burgerMenuIcon {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .burgerMenuIcon {
+        visibility: visible;
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .navigation-menu-mobile{
+        text-align: center;
+    }
+
+
+}

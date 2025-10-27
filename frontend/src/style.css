@@ -1,0 +1,24 @@
+@import './components/var.css';
+
+body{
+    background-color: var(--color-gray-300);
+}
+
+.hero-banner{
+    width: 100vw;
+    height: 25vh;
+}
+
+.homepage-presentation{
+    text-align: justify;
+    padding-left: 25vw;
+    padding-right: 25vw
+}
+
+.homepage-cta{
+    display: flex;
+    justify-content: center;
+    padding-left: 25vw;
+    padding-right: 25vw;
+    margin-top: 2rem;
+}

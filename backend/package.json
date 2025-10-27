@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"tsx": "^4.20.6",
+		"express": "^5.1.0",
+		"@types/express": "^5.0.4"
+	}
+}

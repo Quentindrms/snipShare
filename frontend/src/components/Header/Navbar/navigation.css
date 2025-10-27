@@ -1,0 +1,46 @@
+@import '../../var.css';
+
+.navigation-menu-desktop{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 1vh;
+}
+
+.navigation-link{
+    color: var(--color-white);
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.navigation-link:hover{
+    color: var(--color-accent-1-500);
+}
+
+.navigation-menu-mobile{
+    display: none;
+}
+
+@media (max-width: 900px){
+    .navigation-menu-mobile{
+        /* make the mobile menu appear as a dropdown under the header */
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* directly under the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary-500);
+        padding: 1vh 0.8vh;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        z-index: 50;
+    }
+
+    .navigation-link{
+        font-size: 4vh;
+    }
+
+    .navigation-menu-desktop{
+        display: none;
+    }
+}
