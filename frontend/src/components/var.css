@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'Anta';
+  src: url(../assets/fonts/Anta-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'MavenPro';
+  src: url(../assets/fonts/MavenPro.ttf);
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url(../assets/fonts/Orbitron.ttf);
+}
+
+@font-face {
+  font-family: 'Oxanium';
+  src: url(../assets/fonts/Oxanium.ttf);
+}
+
+@font-face {
+  font-family: 'FiraSans';
+  src: url(../assets/fonts/FiraSans-Medium.ttf);
+}
+
 :root {
   --color-primary-100: #EBF3FE;
   --color-primary-300: #7AB6F0;
@@ -25,6 +50,12 @@
   --color-success: #34D399;
   --color-warning: #FFC107;
   --color-error: #DC3545;
+
+  --font-anta : 'Anta', sans-serif;
+  --font-maven: 'MavenPro', sans-serif;
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-oxanium: 'Oxanium', sans-serif;
+  --font-fira: 'FiraSans', sans-serif;
 }
 
 *{

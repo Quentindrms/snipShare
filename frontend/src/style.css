@@ -12,7 +12,9 @@ body{
 .homepage-presentation{
     text-align: justify;
     padding-left: 25vw;
-    padding-right: 25vw
+    padding-right: 25vw;
+    font-family: var(--font-maven);
+    font-size: 2.5vh;
 }
 
 .homepage-cta{
@@ -21,4 +23,40 @@ body{
     padding-left: 25vw;
     padding-right: 25vw;
     margin-top: 2rem;
+}
+
+.title-2-centered{
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: var(--font-oxanium);
+    color: var(--color-primary-500)
+}
+
+.browsepage-cta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40vw;
+    padding-right: 40vw;
+}
+
+.snippetsContainer{
+    display: flex;
+    justify-content: center;
+    margin: 1.5vw;
+}
+
+@media (max-width: 900px){
+    .homepage-presentation{
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+    .browsepage-cta{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        width: 90vw;
+    }
 }
