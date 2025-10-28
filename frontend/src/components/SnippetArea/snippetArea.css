@@ -1,0 +1,21 @@
+
+.snippetArea{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-gray-500);
+    padding: 1vw;
+
+    gap: 1vw;
+
+    width: 50vw;
+}
+
+.snippetTitle{
+    
+}
+
+.snippetAreaFooter{
+    display: flex;
+    align-self: flex-end;
+    gap: 0.5vw;
+}
