@@ -11,11 +11,32 @@
 }
 
 .snippetTitle{
-    
+    font-family: var(--font-oxanium);
+    color: var(--color-accent-1-500);
+}
+
+.snippetSummary{
+    font-family: var(--font-maven);
+    color: var(--color-black)
+}
+
+.snippetNumberComments, .snippetAreaFooter{
+    font-family:  var(--font-oxanium);
 }
 
 .snippetAreaFooter{
     display: flex;
     align-self: flex-end;
     gap: 0.5vw;
+}
+
+@media (max-width: 900px){
+    .snippetArea{
+        width: 80vw;
+        gap: 2vw;
+    }
+
+    .snippetAreaFooter{
+        gap: 2vw;
+    }
 }

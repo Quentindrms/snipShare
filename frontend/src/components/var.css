@@ -18,6 +18,10 @@
   src: url(../assets/fonts/Oxanium.ttf);
 }
 
+@font-face {
+  font-family: 'FiraSans';
+  src: url(../assets/fonts/FiraSans-Medium.ttf);
+}
 
 :root {
   --color-primary-100: #EBF3FE;
@@ -51,6 +55,7 @@
   --font-maven: 'MavenPro', sans-serif;
   --font-orbitron: 'Orbitron', sans-serif;
   --font-oxanium: 'Oxanium', sans-serif;
+  --font-fira: 'FiraSans', sans-serif;
 }
 
 *{

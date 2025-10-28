@@ -17,7 +17,7 @@ export function SnippetArea({ snippetTitle, snippetSummary, snippetNumberComment
                 <p className="snippetSummary">{snippetSummary}</p>
             </div>
             <div className="snippetAreaFooter">
-                <p className="snipetNumberComments">Commentaire : {snippetNumberComments}</p>
+                <p className="snippetNumberComments">Commentaire : {snippetNumberComments}</p>
                 <p className="snippetNumberLikes">Like : {snippetNumberLikes}</p>
             </div>
         </div>
