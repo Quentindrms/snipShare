@@ -1,0 +1,13 @@
+.snippet-code-area {
+    background-color: var(--color-gray-500);
+    margin-top: 5vh;
+
+    margin-left: 20vw;
+    margin-right: 20vw;
+
+    padding: 2vw;
+}
+
+.snippet-code{
+    color: var(--color-white);
+}
