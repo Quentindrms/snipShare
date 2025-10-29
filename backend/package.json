@@ -1,7 +1,17 @@
 {
 	"dependencies": {
-		"tsx": "^4.20.6",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
 		"express": "^5.1.0",
-		"@types/express": "^5.0.4"
+		"tsx": "^4.20.6"
+	},
+	  "scripts": {
+    "dev": "tsx --watch ./index.ts"
+  },
+	"devDependencies": {
+		"@types/cookie-parser": "^1.4.10",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.4",
+		"@types/node": "^24.9.2"
 	}
 }
