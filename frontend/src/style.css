@@ -25,13 +25,6 @@ body{
     margin-top: 2rem;
 }
 
-.title-2-centered{
-    font-size: 1.5vw;
-    text-align: center;
-    font-family: var(--font-oxanium);
-    color: var(--color-primary-500)
-}
-
 .browsepage-cta{
     display: flex;
     flex-direction: column;
@@ -45,6 +38,29 @@ body{
     justify-content: center;
     margin: 1.5vw;
 }
+
+.snippet-tag-area{
+    display: flex;
+    flex-direction: row;
+    gap: 0.75vw;
+    justify-content: flex-end;
+
+    padding-left: 25vw;
+    padding-right: 20vw;
+    padding-top: 2vh;
+
+}
+
+
+.commentary-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 2vh;
+    margin: 2vh;
+}
+
 
 @media (max-width: 900px){
     .homepage-presentation{
