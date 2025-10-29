@@ -1,0 +1,27 @@
+
+.commentary{
+    border: 2px solid var(--color-gray-700);
+    width: 45vw;
+}
+
+.commentary-username{
+    font-family: var(--font-fira);
+    margin: 0.75vw;
+}
+
+.commentary-contents{
+    font-family: var(--font-maven);
+    padding: 0.25vw;
+    text-align: justify;
+}
+
+.commentary-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0.35vw;
+}
+
+.commentary-publish-date{
+    font-family: var(--font-fira);
+}

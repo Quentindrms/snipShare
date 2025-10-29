@@ -46,10 +46,21 @@ body{
     justify-content: flex-end;
 
     padding-left: 25vw;
-    padding-right: 25vw;
+    padding-right: 20vw;
     padding-top: 2vh;
 
 }
+
+
+.commentary-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 2vh;
+    margin: 2vh;
+}
+
 
 @media (max-width: 900px){
     .homepage-presentation{
