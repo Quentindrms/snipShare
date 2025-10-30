@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import { createRequire } from "node:module";
 import type {CorsOptions} from "cors";
 import { create } from "node:domain";
-import router from "./routes";
+
+import router from "./src/routes";
 
 const app = Express();
 const port = 3000;
