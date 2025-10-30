@@ -1,4 +1,4 @@
-interface SubmitButtonProps{
+interface SubmitButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     text:string,
 }
 
