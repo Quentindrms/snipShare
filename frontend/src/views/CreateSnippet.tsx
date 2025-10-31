@@ -1,10 +1,20 @@
 import SnippetForm, { type SnippetFormType } from "../components/SnippetForm/SnippetForm";
 import Title2 from "../components/Titles/Title-2";
+import { useApiFetch } from "../hooks/useApiFetch";
 
 export function CreateSnippets(){
 
-    const sendToApi = async (formData: SnippetFormType) => {
+    const {fetchApi} = useApiFetch();
 
+
+    const sendToApi = async (formData: SnippetFormType) => {
+        const response = await fetchApi({
+            method: "POST",
+            path: "/snippets/post-snippet",
+            body: formData,
+            credentials: "include",
+            delai: 0,
+        })
     }
 
     return(
