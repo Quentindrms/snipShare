@@ -8,6 +8,7 @@ export function CreateSnippets(){
 
 
     const sendToApi = async (formData: SnippetFormType) => {
+        console.log('Send to api');
         const response = await fetchApi({
             method: "POST",
             path: "/snippets/post-snippet",
@@ -15,6 +16,7 @@ export function CreateSnippets(){
             credentials: "include",
             delai: 0,
         })
+        console.log(response);
     }
 
     return(

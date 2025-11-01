@@ -34,7 +34,7 @@ export const useApiFetch = <TResponse>() => {
                 fetchOptions.body = JSON.stringify(body);
             }
 
-            const response = await fetch(import.meta.env.VITE_API_URL + path, fetchOptions);
+            const response = await fetch('http://localhost:3000'+ path, fetchOptions);
             const json = (await response.json()) as ApiResponse<TResponse>;
 
             if(!response.ok) throw new Error(json.message);
