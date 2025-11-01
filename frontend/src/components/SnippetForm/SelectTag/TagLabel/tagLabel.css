@@ -1,0 +1,13 @@
+.tag-label{
+    color: var(--color-white);
+    background-color: var(--color-gray-500);
+    width: fit-content;
+    padding: 0.25vw;
+    border-radius: 5px;
+}
+
+.tag-container{
+    display: flex;
+    gap: 1vw;
+    margin: 1vw;
+}
