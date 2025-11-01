@@ -8,6 +8,8 @@ import { create } from "node:domain";
 
 import router from "./src/routes";
 
+const env = process.env.NODE_ENV;
+
 const app = Express();
 const port = 3000;
 
@@ -19,11 +21,13 @@ const cors: typeof import('cors') = require('cors');
 
 //N'autorise que les origines définies et active les cookies (credentials)
 const CORS_OPTIONS: CorsOptions = {
-    origin: [process.env.CORS_ALLOWED ?? ''],
+    origin: ['http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }
+
+app.use(cors(CORS_OPTIONS));
 
 app.use(Express.static(path.join(_dirname, 'public')));
 //Permet de décoder le corps des requêttes
