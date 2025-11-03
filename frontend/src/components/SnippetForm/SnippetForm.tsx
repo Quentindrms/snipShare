@@ -16,6 +16,7 @@ export interface SnippetFormType {
     snippetTag: string[],
     snippetDetails: string,
     snippetCode: string,
+    language: string,
 }
 
 
@@ -24,6 +25,7 @@ const defaultValue: SnippetFormType = {
     snippetTag: [],
     snippetDetails: '',
     snippetCode: '',
+    language: '',
 }
 
 export function SnippetForm({ sendToApi }: SnippetFormProps) {
@@ -36,11 +38,18 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
-        const checked = 'checked' in event.target ? event.target.checked : undefined; //Si un checked est détecté dans l'event target checked prend la valeur checked, sinon undefined
-
-        setFormData((prev) => {
-            return { ...prev, [name]: value, checked: checked }
-        })
+        
+        if (event.target.type === 'radio') {
+            setFormData((prev) => ({
+                ...prev,
+                language: value
+            }));
+        } else {
+            setFormData((prev) => ({
+                ...prev,
+                [name]: value
+            }));
+        }
     }
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -85,7 +94,13 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
                 <fieldset className="select-language">
                     <legend className='select-language-legend legend'>Language du snippet</legend>
                     {result?.data.map((language) => (
-                        <RadioInputLanguage inputId={`language.identifiant_language`} labelText={language.nom_language} value={language.identifiant_language} />
+                        <RadioInputLanguage 
+                            key={language.identifiant_language}
+                            inputId={`${language.identifiant_language}`}
+                            labelText={language.nom_language}
+                            value={language.nom_language}
+                            onChange={handleInputChange}
+                        />
                     ))}
                 </fieldset>
 

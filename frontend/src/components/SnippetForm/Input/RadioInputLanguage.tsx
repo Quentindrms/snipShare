@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-import { useApiFetch } from "../../../hooks/useApiFetch";
-import type { Languages } from "../../../types/Types";
-
 interface RadioInputLanguageProps extends React.InputHTMLAttributes<HTMLInputElement> {
     labelText: string,
     inputId: string,
-    value: number|undefined,
+    value: string
 }
 
 export function RadioInputLanguage({ labelText, inputId, value, onChange }: RadioInputLanguageProps) {
@@ -14,14 +10,15 @@ export function RadioInputLanguage({ labelText, inputId, value, onChange }: Radi
         <>
             <input
                 type="radio"
-                id={`${inputId}`}
+                id={inputId}
                 name="language"
                 value={value}
                 className="language-name"
                 onChange={onChange}
+                required
             />
             <label
-                htmlFor={`${inputId}`}
+                htmlFor={inputId}
                 className='language-label'
             >
                 {labelText}
