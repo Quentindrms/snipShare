@@ -32,7 +32,6 @@ export class SnippetRepository extends Repository {
         try{
             const result = await this.pool.query<LanguageDbRow>(query);
             const language = result.rows;
-            console.log(language);
             return language;
         } catch(err){
             console.error(err);

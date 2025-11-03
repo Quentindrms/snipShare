@@ -11,3 +11,9 @@ export type ApiResponse<TData> = {
     message: string,
     data: TData,
 }
+
+export type Languages = {
+    identifiant_language?: number,
+    nom_language: string,
+}
+

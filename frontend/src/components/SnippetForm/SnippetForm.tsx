@@ -3,6 +3,9 @@ import RadioInputLanguage from './Input/RadioInputLanguage';
 import SubmitButton from './Input/SubmitButton';
 import './snippetForm.css';
 import SelectTag from './SelectTag/SelectTag';
+import { useEffect } from 'react';
+import { useApiFetch } from '../../hooks/useApiFetch';
+import type { Languages } from '../../types/Types';
 
 interface SnippetFormProps {
     sendToApi: (FormData: SnippetFormType) => void;
@@ -54,6 +57,23 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
         }))
     }
 
+    const { fetchApi, isLoading, result } = useApiFetch<Languages[]>();
+
+    useEffect(() => {
+        const init = async () => {
+            try {
+                const res = await fetchApi({
+                    method: 'GET',
+                    path: '/snippets/fetch-languages/',
+                    credentials: 'include'
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        init();
+    }, []);
+
     return (
         <>
             <form className="create-snippet-form" onSubmit={(e) => handleFormSubmit(e)}>
@@ -64,16 +84,9 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
 
                 <fieldset className="select-language">
                     <legend className='select-language-legend legend'>Language du snippet</legend>
-                    <RadioInputLanguage labelText='Javascript' inputId='javascript' value='javascript' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Typescript' inputId='typescript' value='typescript' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Python' inputId='python' value='python' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Java' inputId='java' value='java' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='C' inputId='c' value='c' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='C++' inputId='cpp' value='cpp' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Rust' inputId='rust' value='rust' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Fortran' inputId='fortran' value='fortran' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Go' inputId='go' value='go' onChange={(event) => handleInputChange(event)} />
-                    <RadioInputLanguage labelText='Kotlin' inputId='kotlin' value='kotlin' onChange={(event) => handleInputChange(event)} />
+                    {result?.data.map((language) => (
+                        <RadioInputLanguage inputId={`language.identifiant_language`} labelText={language.nom_language} value={language.identifiant_language} />
+                    ))}
                 </fieldset>
 
                 <SelectTag onChange={(change: string[]) => handleTagsChange(change)} />

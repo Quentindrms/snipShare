@@ -15,7 +15,7 @@ export class SnippetController extends Controller{
     async fetchLanguages(){
         const repository = new SnippetRepository();
         const languages = await repository.fetchLanguages();
-        this.response.json(languages);
+        this.response.json({data: languages});
     }
 
 }
