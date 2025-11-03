@@ -15,8 +15,9 @@ export class Database {
                 user: process.env.PGUSER,
                 password: process.env.PGPASSWORD,
                 host: process.env.PGHOST,
-                database: process.env.PGDATABSE,
+                database: process.env.PGDATABASE,
             })
+            console.log(Database.pool);
         }
         return Database.pool;
     }
