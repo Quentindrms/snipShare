@@ -12,4 +12,10 @@ export class SnippetController extends Controller{
         this.response.json('Affichage des snippets');
     }
 
+    async fetchLanguages(){
+        const repository = new SnippetRepository();
+        const languages = await repository.fetchLanguages();
+        this.response.json(languages);
+    }
+
 }

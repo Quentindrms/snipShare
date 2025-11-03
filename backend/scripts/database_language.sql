@@ -1,4 +1,4 @@
-INSERT INTO snippet_language( (nom_language) VALUES
+INSERT INTO snippet_language (nom_language) VALUES
     ('Python'),
     ('JavaScript'),
     ('Java'),
@@ -20,4 +20,4 @@ INSERT INTO snippet_language( (nom_language) VALUES
     ('Perl'),
     ('Scala');
 
-SELECT * FROM Language_ ORDER BY identifiant_language;
+SELECT * FROM snippet_language ORDER BY identifiant_language;

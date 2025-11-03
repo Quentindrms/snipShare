@@ -1,4 +1,5 @@
 import { Repository } from "../libs/Repository";
+import { LanguageDbRow } from "../types/Database";
 import SnippetType from "../types/SnippetType";
 
 export class SnippetRepository extends Repository {
@@ -18,9 +19,25 @@ export class SnippetRepository extends Repository {
             const result = await this.pool.query<{ id: number }>(query);
             return result.rows[0].id;
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
         return null;
+    }
+
+    fetchLanguages = async(): Promise<LanguageDbRow[] | undefined> => {
+        const query = {
+            name: 'fetch-languages',
+            text: 'SELECT * FROM snippet_language',
+        };
+        try{
+            const result = await this.pool.query<LanguageDbRow>(query);
+            const language = result.rows;
+            console.log(language);
+            return language;
+        } catch(err){
+            console.error(err);
+        }
+        return undefined;
     }
 
 }
