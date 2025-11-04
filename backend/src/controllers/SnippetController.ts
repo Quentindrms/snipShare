@@ -19,4 +19,10 @@ export class SnippetController extends Controller {
         this.response.json({ data: languages });
     }
 
+    async fetchSnippets(){
+        const repository = new SnippetRepository();
+        const snippets = await repository.fetchSnippet();
+        this.response.json({data: snippets});
+    }
+
 }

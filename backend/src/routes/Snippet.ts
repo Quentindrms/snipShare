@@ -19,4 +19,9 @@ snippetRouter.get('/fetch-languages', (request, response) => {
     controller.fetchLanguages();
 })
 
+snippetRouter.get('/fetch-snippets', (request, response) => {
+    const controller = new SnippetController(request, response);
+    controller.fetchSnippets();
+})
+
 export default snippetRouter;
