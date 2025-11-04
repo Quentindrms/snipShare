@@ -19,5 +19,6 @@ const snippetSchema = z.object({
     snippetDetails: z.string().min(20, 'La description doit compter minimum 20 caractères').max(10000, 'La description ne peut pas dépasser 10 000 caractères'),
     snippetCode: z.string().min(10, 'Le code du snippet doit comporter au minimum 10 caractères').max(10000, 'Le code du snippet ne peut pas comporter plus de 10 000 caractères'),
     language: z.string('Un snippet doit comporter un language'),
-    identifiant_utilisateur: z.int("L'identifiant utilisateur doti être un chiffre")
+    identifiant_utilisateur: z.int("L'identifiant utilisateur doti être un nombre"),
+    visibilite: z.int('La visibilité du snippet doit être un nombre')
 })

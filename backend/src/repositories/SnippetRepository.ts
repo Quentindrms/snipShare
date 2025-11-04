@@ -7,12 +7,13 @@ export class SnippetRepository extends Repository {
     createSnippet = async (snippet: SnippetType): Promise<number | null> => {
         const query = {
             name: 'create-snippet',
-            text: 'INSERT INTO snippet (titre, description, tags, code, identifiant_language, identifiant_utilisateur) VALUES ($1, $2, $3, $4, $5, $6) RETURNING identifiant_snippet',
+            text: 'INSERT INTO snippet (titre, description, tags, code, visibilite, identifiant_language, identifiant_utilisateur) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING identifiant_snippet',
             values: [
                 snippet.snippetName,
                 snippet.snippetDetails,
                 snippet.snippetTags,
                 snippet.snippetCode,
+                snippet.visibilite,
                 snippet.language,
                 snippet.identifiant_utilisateur,
             ]

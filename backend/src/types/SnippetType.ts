@@ -6,6 +6,7 @@ export type SnippetType = {
     snippetTags: string[],
     snippetCode: string,
     identifiant_utilisateur: string,
+    visibilite: number,
 }
 
 export default SnippetType;
