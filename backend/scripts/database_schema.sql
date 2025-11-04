@@ -31,7 +31,7 @@ CREATE TABLE snippet_language(
 CREATE TABLE Snippet(
    identifiant_snippet SERIAL,
    titre VARCHAR(150) ,
-   visibilité INTEGER,
+   visibilite INTEGER,
    tags VARCHAR(150) ,
    nombre_like INTEGER,
    code VARCHAR(8000) ,
