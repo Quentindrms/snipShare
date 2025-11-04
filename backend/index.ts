@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import Express from "express";
 import { fileURLToPath } from "url";
 import path from "node:path";
@@ -5,8 +6,10 @@ import cookieParser from "cookie-parser";
 import { createRequire } from "node:module";
 import type {CorsOptions} from "cors";
 import { create } from "node:domain";
-
+import dotenv from 'dotenv';
 import router from "./src/routes";
+
+dotenv.config({ path: path.resolve(__dirname, '.env.dev') });
 
 const env = process.env.NODE_ENV;
 
@@ -26,6 +29,7 @@ const CORS_OPTIONS: CorsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }
+
 
 app.use(cors(CORS_OPTIONS));
 

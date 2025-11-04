@@ -1,9 +1,11 @@
 export type SnippetType = {
     id: number,
-    title: string,
-    visibility: string,
-    tags: string[],
-    likeNumber: number,
+    snippetName: string,
+    language: string,
+    snippetDetails: string,
+    snippetTags: string[],
+    snippetCode: string,
+    identifiant_utilisateur: string,
 }
 
 export default SnippetType;
