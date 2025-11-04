@@ -5,6 +5,8 @@ import './snippetForm.css';
 import SelectTag from './SelectTag/SelectTag';
 import { useEffect } from 'react';
 import { useApiFetch } from '../../hooks/useApiFetch';
+import SelectMenu from './Input/SelectMenu';
+
 import type { Languages } from '../../types/Types';
 
 interface SnippetFormProps {
@@ -18,6 +20,7 @@ export interface SnippetFormType {
     snippetCode: string,
     language: string,
     identifiant_utilisateur: number,
+    visibilite: number;
 }
 
 
@@ -28,6 +31,7 @@ const defaultValue: SnippetFormType = {
     snippetCode: '',
     language: '',
     identifiant_utilisateur: 1,
+    visibilite: 0,
 }
 
 export function SnippetForm({ sendToApi }: SnippetFormProps) {
@@ -40,7 +44,7 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
-        
+
         if (event.target.type === 'radio') {
             setFormData((prev) => ({
                 ...prev,
@@ -65,6 +69,14 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
         setFormData((prev) => ({
             ...prev,
             snippetTag: tags
+        }))
+    }
+
+    const handleVisibilityChange = (visibilite: string) => {
+        console.log(visibilite);
+        setFormData((prev) => ({
+            ...prev,
+            visibilite: parseInt(visibilite),
         }))
     }
 
@@ -96,7 +108,7 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
                 <fieldset className="select-language">
                     <legend className='select-language-legend legend'>Language du snippet</legend>
                     {result?.data.map((language) => (
-                        <RadioInputLanguage 
+                        <RadioInputLanguage
                             key={language.identifiant_language}
                             inputId={`${language.identifiant_language}`}
                             labelText={language.nom_language}
@@ -107,6 +119,8 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
                 </fieldset>
 
                 <SelectTag onChange={(change: string[]) => handleTagsChange(change)} />
+
+                <SelectMenu onChange={(event: React.ChangeEvent<HTMLSelectElement>) => handleVisibilityChange(event.target.value)} />
 
                 <label className='snippet-details-label label'>Description de votre snippet</label>
                 <textarea className="snippet-input-details" name="snippetDetails" id="snippetDetails" rows={15} cols={2} onChange={(event) => handleInputChange(event)} required></textarea>
