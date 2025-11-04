@@ -1,7 +1,7 @@
 interface RadioInputLanguageProps extends React.InputHTMLAttributes<HTMLInputElement> {
     labelText: string,
     inputId: string,
-    value: string
+    value: number|undefined;
 }
 
 export function RadioInputLanguage({ labelText, inputId, value, onChange }: RadioInputLanguageProps) {

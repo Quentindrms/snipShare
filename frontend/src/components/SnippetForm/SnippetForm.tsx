@@ -17,6 +17,7 @@ export interface SnippetFormType {
     snippetDetails: string,
     snippetCode: string,
     language: string,
+    identifiant_utilisateur: number,
 }
 
 
@@ -26,6 +27,7 @@ const defaultValue: SnippetFormType = {
     snippetDetails: '',
     snippetCode: '',
     language: '',
+    identifiant_utilisateur: 1,
 }
 
 export function SnippetForm({ sendToApi }: SnippetFormProps) {
@@ -98,7 +100,7 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
                             key={language.identifiant_language}
                             inputId={`${language.identifiant_language}`}
                             labelText={language.nom_language}
-                            value={language.nom_language}
+                            value={language.identifiant_language}
                             onChange={handleInputChange}
                         />
                     ))}
