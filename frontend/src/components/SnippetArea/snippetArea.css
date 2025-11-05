@@ -1,5 +1,4 @@
-
-.snippetArea{
+.snippetArea {
     display: flex;
     flex-direction: column;
     border: 2px solid var(--color-gray-500);
@@ -10,33 +9,46 @@
     width: 50vw;
 }
 
-.snippetTitle{
+.snippetTitle {
     font-family: var(--font-oxanium);
     color: var(--color-accent-1-500);
 }
 
-.snippetSummary{
+.snippetSummary {
     font-family: var(--font-maven);
     color: var(--color-black)
 }
 
-.snippetNumberComments, .snippetAreaFooter{
-    font-family:  var(--font-oxanium);
+.snippetNumberComments,
+.snippetAreaFooter {
+    font-family: var(--font-oxanium);
 }
 
-.snippetAreaFooter{
+.snippetAreaFooter {
     display: flex;
     align-self: flex-end;
     gap: 0.5vw;
 }
 
-@media (max-width: 900px){
-    .snippetArea{
+.snippet-link {
+    font-family: var(--font-oxanium);
+    color: var(--color-accent-1-500);
+    text-decoration: none;
+}
+
+.snippet-link:visited {
+    font-family: var(--font-oxanium);
+    color: var(--color-accent-1-500);
+}
+
+
+@media (max-width: 900px) {
+    .snippetArea {
         width: 80vw;
         gap: 2vw;
     }
 
-    .snippetAreaFooter{
+    .snippetAreaFooter {
         gap: 2vw;
     }
 }

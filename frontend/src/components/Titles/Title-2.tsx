@@ -1,7 +1,7 @@
 import './title.css';
 
 interface Title2Props{
-    text : string,
+    text : string|undefined,
     center: boolean,
 }
 

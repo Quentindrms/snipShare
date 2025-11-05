@@ -1,8 +1,12 @@
 import { Repository } from "../libs/Repository";
-import { LanguageDbRow } from "../types/Database";
+import { LanguageDbRow, SnippetDbRow } from "../types/Database";
 import SnippetType from "../types/SnippetType";
 
 export class SnippetRepository extends Repository {
+
+    /** 
+     * Création d'un snippet
+    */
 
     createSnippet = async (snippet: SnippetType): Promise<number | null> => {
         const query = {
@@ -27,6 +31,10 @@ export class SnippetRepository extends Repository {
         return null;
     }
 
+    /** 
+     * Récupération de tous les langages disponibles
+    */
+
     fetchLanguages = async(): Promise<LanguageDbRow[] | undefined> => {
         const query = {
             name: 'fetch-languages',
@@ -37,6 +45,45 @@ export class SnippetRepository extends Repository {
             const language = result.rows;
             return language;
         } catch(err){
+            console.error(err);
+        }
+        return undefined;
+    }
+
+    /** 
+     * Récupération de tous les snippets disponibles
+    */
+
+    fetchSnippets = async(): Promise<SnippetDbRow[] | undefined> => {
+        const query = {
+            name: 'fetch-snippet',
+            text: 'SELECT * FROM snippet'
+        };
+        try{
+            const result = await this.pool.query<SnippetDbRow>(query);
+            const snippets = result.rows;
+            return snippets;
+        }catch(err){
+            console.log(err);
+        }
+        return undefined;
+    }
+
+    /** 
+     * Récupération d'un snippet selon son ID
+     */
+
+    fetchSnippet = async(identifiant: number): Promise<SnippetDbRow[] | undefined> => {
+        const query = {
+            name:'fetch-a-snippet',
+            text:'SELECT * FROM snippet WHERE identifiant_snippet=$1',
+            values:[identifiant]
+        };
+        try{
+            const result = await this.pool.query<SnippetDbRow>(query);
+            const snippet = result.rows;
+            return snippet;
+        }catch(err){
             console.error(err);
         }
         return undefined;

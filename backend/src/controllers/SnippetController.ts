@@ -9,14 +9,34 @@ export class SnippetController extends Controller {
         repository.createSnippet(this.request.body);
     }
 
-    browseSnippet() {
-        this.response.json('Affichage des snippets');
-    }
+    /** 
+     * Fetch tous les langages disponibles 
+    */
 
     async fetchLanguages() {
         const repository = new SnippetRepository();
         const languages = await repository.fetchLanguages();
         this.response.json({ data: languages });
+    }
+
+    /**
+     * Fetch tous les snippets disponibles en base de données
+     */
+
+    async fetchSnippets(){
+        const repository = new SnippetRepository();
+        const snippets = await repository.fetchSnippets();
+        this.response.json({data: snippets});
+    }
+
+    /** 
+     * Fetch un snippet selon son ID 
+     */
+
+    async fetchSnippet(identifiant: number){
+        const repository = new SnippetRepository();
+        const snippet = await repository.fetchSnippet(identifiant);
+        this.response.json({data: snippet});
     }
 
 }

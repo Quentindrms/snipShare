@@ -1,19 +1,20 @@
 import './snippetArea.css';
 
 interface SnippetAreaProps {
+    snippetLink: string
     snippetTitle: string,
     snippetSummary: string,
-    snippetNumberComments: number,
-    snippetNumberLikes: number
+    snippetNumberComments: string,
+    snippetNumberLikes: string,
 }
 
-export function SnippetArea({ snippetTitle, snippetSummary, snippetNumberComments, snippetNumberLikes }: SnippetAreaProps) {
+export function SnippetArea({ snippetTitle, snippetSummary, snippetNumberComments, snippetNumberLikes, snippetLink }: SnippetAreaProps) {
 
 
     return (
         <div className="snippetArea">
             <div className="snippetAreaBody">
-                <h3 className='snippetTitle'>{snippetTitle}</h3>
+                <h3 className='snippetTitle'><a href={snippetLink} className='snippet-link'>{snippetTitle}</a></h3>
                 <p className="snippetSummary">{snippetSummary}</p>
             </div>
             <div className="snippetAreaFooter">

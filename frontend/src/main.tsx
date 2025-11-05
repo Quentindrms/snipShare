@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/favorite-snippets" element={<FavoriteSnippets />} />
         <Route path="/create-snippet" element={<CreateSnippets />} />
         <Route path="/manage-snippets" element={<ManageSnippets />} />
-        <Route path="/snippet-details" element={<SnippetDetails />} />
+        <Route path="/snippet-details/:identifiant" element={<SnippetDetails />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
