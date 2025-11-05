@@ -24,6 +24,7 @@ export type Snippet = {
     visibilite: number,
     tags: string,
     nombre_like: string,
+    nombre_commentaire: string,
     identifiant_language: number,
 }
 

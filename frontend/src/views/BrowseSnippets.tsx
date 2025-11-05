@@ -35,8 +35,8 @@ export function BrowseSnippets(){
             <div className="snippetsContainer">
                 {result?.data.map((snippet, index) => (
                     <SnippetArea key={index} snippetTitle={snippet.titre} 
-                    snippetNumberComments={0}
-                    snippetNumberLikes={0}
+                    snippetNumberComments={snippet.nombre_commentaire && '0'}
+                    snippetNumberLikes={snippet.nombre_like}
                     snippetSummary={snippet.description} />
                 ))}
             </div>

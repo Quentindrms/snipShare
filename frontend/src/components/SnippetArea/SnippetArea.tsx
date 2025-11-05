@@ -3,8 +3,8 @@ import './snippetArea.css';
 interface SnippetAreaProps {
     snippetTitle: string,
     snippetSummary: string,
-    snippetNumberComments: number,
-    snippetNumberLikes: number
+    snippetNumberComments: string,
+    snippetNumberLikes: string,
 }
 
 export function SnippetArea({ snippetTitle, snippetSummary, snippetNumberComments, snippetNumberLikes }: SnippetAreaProps) {
