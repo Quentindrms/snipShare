@@ -17,3 +17,13 @@ export type Languages = {
     nom_language: string,
 }
 
+export type Snippet = {
+    identifiant_snippet?: number,
+    titre: string,
+    description: string,
+    visibilite: number,
+    tags: string,
+    nombre_like: string,
+    identifiant_language: number,
+}
+

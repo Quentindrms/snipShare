@@ -22,6 +22,7 @@ export class SnippetController extends Controller {
     async fetchSnippets(){
         const repository = new SnippetRepository();
         const snippets = await repository.fetchSnippet();
+        console.log(snippets)
         this.response.json({data: snippets});
     }
 

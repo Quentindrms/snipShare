@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import SearchBar from "../components/SearchBar/SearchBar";
 import SnippetArea from "../components/SnippetArea/SnippetArea";
+import { useApiFetch } from "../hooks/useApiFetch";
+import type { Snippet } from "../types/Types";
 
 export function BrowseSnippets(){
+
+    const {fetchApi, isLoading, result} = useApiFetch<Snippet[]>();
+
+    useEffect(() => {
+        const init = async () => {
+            try{
+                const res = await fetchApi({
+                    method: 'GET',
+                    path: '/snippets/fetch-snippets',
+                    credentials: 'include',
+                });
+            } catch(err){
+                console.log(err);
+            }
+        };
+        init();
+        console.log(result?.data);
+    }, []);
 
     return (
         <>
@@ -12,11 +33,12 @@ export function BrowseSnippets(){
                 <PrimaryButton buttonText="Recherche avancée" buttonLink="#" />
             </div>
             <div className="snippetsContainer">
-                <SnippetArea snippetTitle="Lorem ipsum"
-                snippetSummary="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas odio lorem, maximus vel ipsum eu, venenatis dictum tellus. Pellentesque ut mauris malesuada lectus dictum placerat a quis risus. Aenean ut gravida tellus. Mauris porta metus a venenatis consequat. Morbi tortor sem, interdum a imperdiet ut, iaculis id nisl. Vestibulum ut convallis metus."
-                snippetNumberComments={10}
-                snippetNumberLikes={10}
-                 />
+                {result?.data.map((snippet, index) => (
+                    <SnippetArea key={index} snippetTitle={snippet.titre} 
+                    snippetNumberComments={0}
+                    snippetNumberLikes={0}
+                    snippetSummary={snippet.description} />
+                ))}
             </div>
         </>
     )
