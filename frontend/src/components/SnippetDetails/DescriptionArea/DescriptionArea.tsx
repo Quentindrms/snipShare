@@ -1,7 +1,7 @@
 import './descriptionArea.css'
 
 interface DescriptionAreaProps{
-    text: string;
+    text: string|undefined;
 }
 
 export function DescriptionArea({text}:DescriptionAreaProps) {

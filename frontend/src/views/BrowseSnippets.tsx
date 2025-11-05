@@ -22,7 +22,6 @@ export function BrowseSnippets(){
             }
         };
         init();
-        console.log(result?.data);
     }, []);
 
     return (
@@ -34,7 +33,9 @@ export function BrowseSnippets(){
             </div>
             <div className="snippetsContainer">
                 {result?.data.map((snippet, index) => (
-                    <SnippetArea key={index} snippetTitle={snippet.titre} 
+                    <SnippetArea key={index} 
+                    snippetLink={'/snippet-details/'+snippet.identifiant_snippet}
+                    snippetTitle={snippet.titre} 
                     snippetNumberComments={snippet.nombre_commentaire && '0'}
                     snippetNumberLikes={snippet.nombre_like}
                     snippetSummary={snippet.description} />

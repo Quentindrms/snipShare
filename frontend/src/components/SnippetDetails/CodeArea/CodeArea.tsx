@@ -1,7 +1,7 @@
 import './codeArea.css';
 
 interface CodeAreaSnippet{
-    code: string,
+    code: string|undefined,
 }
 
 export function CodeArea({code}:CodeAreaSnippet){

@@ -4,6 +4,10 @@ import SnippetType from "../types/SnippetType";
 
 export class SnippetRepository extends Repository {
 
+    /** 
+     * Création d'un snippet
+    */
+
     createSnippet = async (snippet: SnippetType): Promise<number | null> => {
         const query = {
             name: 'create-snippet',
@@ -27,6 +31,10 @@ export class SnippetRepository extends Repository {
         return null;
     }
 
+    /** 
+     * Récupération de tous les langages disponibles
+    */
+
     fetchLanguages = async(): Promise<LanguageDbRow[] | undefined> => {
         const query = {
             name: 'fetch-languages',
@@ -42,7 +50,11 @@ export class SnippetRepository extends Repository {
         return undefined;
     }
 
-    fetchSnippet = async(): Promise<SnippetDbRow[] | undefined> => {
+    /** 
+     * Récupération de tous les snippets disponibles
+    */
+
+    fetchSnippets = async(): Promise<SnippetDbRow[] | undefined> => {
         const query = {
             name: 'fetch-snippet',
             text: 'SELECT * FROM snippet'
@@ -53,6 +65,26 @@ export class SnippetRepository extends Repository {
             return snippets;
         }catch(err){
             console.log(err);
+        }
+        return undefined;
+    }
+
+    /** 
+     * Récupération d'un snippet selon son ID
+     */
+
+    fetchSnippet = async(identifiant: number): Promise<SnippetDbRow[] | undefined> => {
+        const query = {
+            name:'fetch-a-snippet',
+            text:'SELECT * FROM snippet WHERE identifiant_snippet=$1',
+            values:[identifiant]
+        };
+        try{
+            const result = await this.pool.query<SnippetDbRow>(query);
+            const snippet = result.rows;
+            return snippet;
+        }catch(err){
+            console.error(err);
         }
         return undefined;
     }

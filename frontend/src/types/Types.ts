@@ -21,6 +21,7 @@ export type Snippet = {
     identifiant_snippet?: number,
     titre: string,
     description: string,
+    code: string,
     visibilite: number,
     tags: string,
     nombre_like: string,
