@@ -1,0 +1,44 @@
+services:
+  adminer:
+    image: adminer
+    restart: on-failure
+    ports:
+      - ${ADMINER_PORT}
+
+  db:
+    image: postgres:16-alpine3.22
+    restart: on-failure
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+  backend:
+    restart: on-failure
+    build:
+      context: backend
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - ${BACKEND_PORT}
+    depends_on:
+      - db
+
+  frontend:
+    restart: on-failure
+    build:
+      context: frontend
+    environment:
+      - VITE_API_URL=${VITE_API_SERVER}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - ${FRONTEND_PORT}
+
