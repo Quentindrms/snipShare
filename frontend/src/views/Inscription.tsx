@@ -13,7 +13,6 @@ export function Inscription() {
             credentials: "include",
             delai: 0,
         })
-        console.log(response);
     }
 
 

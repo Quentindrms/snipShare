@@ -38,3 +38,7 @@ export type UserRegistration = {
     mot_de_passe_confirmation: string,
 }
 
+export type UserAuthentification = {
+    email: string,
+    mot_de_passe: string,
+}

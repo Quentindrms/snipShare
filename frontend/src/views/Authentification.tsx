@@ -1,17 +1,23 @@
+import SignupForm from "../components/AuthForm/SignupForm"
+import { useApiFetch } from "../hooks/useApiFetch"
+import type { UserAuthentification } from "../types/Types"
 
 export function Authentification(){
 
+    const {fetchApi} = useApiFetch();
+    const sendToApi = async (formData: UserAuthentification) => {
+        const response = await fetchApi({
+            method: "POST",
+            path: "/authentification/signup",
+            body: formData,
+            credentials: "include",
+            delai: 0,
+        })
+    }
 
     return(
         <>
-            <form className="auth-form">
-            <label className="label">Adresse email</label>
-            <input type="email" className="form-email"></input>
-            <label className="label">Adresse email</label>
-            <input type="password" className="form-password"></input>            
-            <button type="submit" className="auth-button" onClick={() => console.log('Click')}>Se connecter</button>
-            </form>
-
+            <SignupForm sendToApi={sendToApi}/>
             <p className="" >Pas de compte ? <a className='link 'href="/inscription">Inscrivez-vous</a> </p>
         </>
     )
