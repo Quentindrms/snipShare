@@ -4,12 +4,12 @@ import { validateSignin } from "../middleware/validateSignin";
 
 const authRouter = Router();
 
-authRouter.get('/signin', validateSignin, (request, response) => {
+authRouter.post('/signin', validateSignin, (request, response) => {
     const authController = new AuthController(request, response);
     authController.signin();
 })
 
-authRouter.get('/signin', (request, response) => {
+authRouter.post('/signup', (request, response) => {
     const authController = new AuthController(request, response);
     authController.signup();
 })

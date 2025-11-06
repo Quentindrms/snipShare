@@ -17,7 +17,6 @@ export class Database {
                 host: process.env.PGHOST,
                 database: process.env.PGDATABASE,
             })
-            console.log(Database.pool);
         }
         return Database.pool;
     }
