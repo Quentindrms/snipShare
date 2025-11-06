@@ -59,8 +59,6 @@ export function SnippetForm({ sendToApi }: SnippetFormProps) {
     }
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        console.log('handle submit')
-        console.log(formData)
         event.preventDefault();
         sendToApi(formData);
     }

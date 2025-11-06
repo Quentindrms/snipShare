@@ -10,7 +10,8 @@ export class AuthController extends Controller {
      * Inscription
      */
     async signin() {
-        console.log(this.request.body);
+
+        const usersRepository = new UsersRepository();
 
         const unregistredUser: UserDbRow = {
             nom_utilisateur: this.request.body.nom_utilisateur,
@@ -22,14 +23,13 @@ export class AuthController extends Controller {
             snippet_like: []
         }
 
-        const usersRepository = new UsersRepository();
         const checkUser = await usersRepository.getUser(unregistredUser.email);
         if (!checkUser) {
             console.log("L'utilisateur n'existe pas, création");
             usersRepository.createUser(unregistredUser);
             this.response.status(200).json('Compte crée avec succès');
         }
-        else{
+        else {
             console.log("L'utilisateur existe déjà");
             this.response.status(400).json("Un utilisateur similaire existe déjà");
         }
