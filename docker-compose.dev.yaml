@@ -1,13 +1,21 @@
 services:
   adminer:
     image: adminer
+    networks:
+      - data
     restart: on-failure
+    depends_on:
+      - db
     ports:
       - ${ADMINER_PORT}
 
   db:
-    image: postgres:16-alpine3.22
+    image: postgres:18-alpine
+    networks:
+      - data
     restart: on-failure
+    volumes:
+      - ./db-dev:/var/lib/postgresql
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -15,6 +23,8 @@ services:
 
   backend:
     restart: on-failure
+    networks:
+      - data
     build:
       context: backend
     environment:
@@ -42,3 +52,5 @@ services:
     ports:
       - ${FRONTEND_PORT}
 
+networks:
+  data:
