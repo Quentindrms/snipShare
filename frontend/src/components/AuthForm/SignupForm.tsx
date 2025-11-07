@@ -31,7 +31,7 @@ export function SignupForm({sendToApi}: SignupFormProps) {
         <form className="auth-form" onSubmit={(e) => handleFormSubmit(e)}>
             <label className="label">Adresse email</label>
             <input type="email" className="form-email" name="email" onChange={handleInputChange}></input>
-            <label className="label">Adresse email</label>
+            <label className="label">Mot de passe</label>
             <input type="password" className="form-password" name="mot_de_passe" onChange={handleInputChange}></input>
             <button type="submit" className="auth-button">Se connecter</button>
         </form>

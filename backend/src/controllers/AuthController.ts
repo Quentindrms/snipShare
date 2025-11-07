@@ -39,8 +39,21 @@ export class AuthController extends Controller {
      * Connexion
      */
 
-    signup() {
+    async signup() {
+        const usersRepository = new UsersRepository();
 
+        const requestedUser = {
+            email: this.request.body.email,
+            mot_de_passe: this.request.body.mot_de_passe,
+        }
+        console.log(requestedUser);
+        const findedUser = await usersRepository.getUser(requestedUser.email);
+        if (!findedUser) {
+            console.log('Aucun utilisateur correspondant');
+        }
+        else {
+            console.log(`Utilisateur trouvé : ${findedUser[0]}`);
+        }
     }
 
 }
