@@ -62,6 +62,15 @@ body{
     margin: 2vh;
 }
 
+.inscription-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form{
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 900px){
     .homepage-presentation{

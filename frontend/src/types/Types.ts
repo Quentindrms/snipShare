@@ -29,3 +29,16 @@ export type Snippet = {
     identifiant_language: number,
 }
 
+export type UserRegistration = {
+    prenom: string,
+    nom: string,
+    nom_utilisateur: string,
+    email: string,
+    mot_de_passe: string,
+    mot_de_passe_confirmation: string,
+}
+
+export type UserAuthentification = {
+    email: string,
+    mot_de_passe: string,
+}

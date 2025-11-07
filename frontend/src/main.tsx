@@ -9,6 +9,8 @@ import SnippetDetails from './views/SnippetDetails'
 import FavoriteSnippets from './views/FavoriteSnippets'
 import CreateSnippets from './views/CreateSnippet'
 import { ManageSnippets } from './views/ManageSnippets'
+import { Authentification } from './views/Authentification'
+import { Inscription } from './views/Inscription'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,6 +23,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/create-snippet" element={<CreateSnippets />} />
         <Route path="/manage-snippets" element={<ManageSnippets />} />
         <Route path="/snippet-details/:identifiant" element={<SnippetDetails />} />
+        <Route path="/authentification" element={<Authentification />} />
+        <Route path="/inscription" element={<Inscription />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
