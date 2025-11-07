@@ -32,14 +32,12 @@ export class UsersRepository extends Repository {
         const query = {
             name: 'get-user',
             text: 'SELECT * FROM utilisateur WHERE email=$1',
-            values: [
-                email
-            ]
+            values: [email]
         };
         try {
-            const result = await this.pool.query<UserDbRow[]>(query);
+            const result = await this.pool.query<UserDbRow>(query);
             const user = result.rows;
-            return user[0];
+            return user;
         } catch (err) {
             console.error(err);
         }
