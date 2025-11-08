@@ -12,10 +12,10 @@ export class Database {
     static getPool(): Pool{
         if(!Database.pool){
             Database.pool = new Pool({
-                user: process.env.PGUSER,
-                password: process.env.PGPASSWORD,
-                host: process.env.PGHOST,
-                database: process.env.PGDATABASE,
+                user: process.env.POSTGRES_USER,
+                password: process.env.POSTGRES_PASSWORD,
+                host: process.env.POSTGRES_HOST,
+                database: process.env.POSTGRES_DB,
             })
         }
         return Database.pool;
