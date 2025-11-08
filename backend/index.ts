@@ -5,11 +5,8 @@ import path from "node:path";
 import cookieParser from "cookie-parser";
 import { createRequire } from "node:module";
 import type {CorsOptions} from "cors";
-import { create } from "node:domain";
-import dotenv from 'dotenv';
-import router from "./src/routes";
 
-dotenv.config({ path: path.resolve(__dirname, '.env.dev') });
+import router from "./src/routes";
 
 const env = process.env.NODE_ENV;
 
@@ -24,12 +21,13 @@ const cors: typeof import('cors') = require('cors');
 
 //N'autorise que les origines définies et active les cookies (credentials)
 const CORS_OPTIONS: CorsOptions = {
-    origin: ['http://localhost:5173'],
+    origin: [process.env.HOST_URL ?? ''],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }
 
+console.log(process.env.HOST_URL);
 
 app.use(cors(CORS_OPTIONS));
 
